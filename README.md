@@ -1,3 +1,10 @@
+# Requirements
+
+1. Install the latest node on your system.
+2. Install the latest angular-cli `npm install -g @angular/cli`
+3. Once you `cd` to the project root run `npm install --save-dev` to install the dependencies.
+
+
 # JeopardySite
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
