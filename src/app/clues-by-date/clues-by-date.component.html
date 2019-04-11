@@ -1,0 +1,24 @@
+<div>
+    <form [formGroup]="cluesByDateForm" (ngSubmit)="getCluesByDate()">
+      <mat-form-field>
+          <input matInput [matDatepicker]="startpicker" formControlName="startDate" placeholder="Choose a start date">
+          <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+          <mat-datepicker #startpicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput [matDatepicker]="endpicker" formControlName="endDate" placeholder="Choose an end date">
+          <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+          <mat-datepicker #endpicker></mat-datepicker>
+      </mat-form-field>
+      <button mat-button color="primary" type="submit" [disabled]="cluesByDateForm.invalid">Submit</button>
+    </form>
+    <button mat-button color="secondary" (click)="clearDates()">Reset</button>
+  </div>
+  <div *ngIf="clueSearchResult.length > 0">
+    <table>
+      <tr><th>Id</th><th>Question</th><th>Answer</th><th>Value</th><th>Air Date</th><th>Category</th></tr>
+      <tr *ngFor="let clue of clueSearchResult">
+        <td>{{clue.id}}</td><td>{{clue.question}}</td><td>{{clue.answer}}</td><td>{{clue.value}}</td><td>{{clue.airdate}}</td><td>{{clue.category.title}}</td>
+      </tr>
+    </table>
+  </div>
