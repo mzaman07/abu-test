@@ -1,0 +1,9 @@
+<form [formGroup]="categoryListForm" (ngSubmit)="categoriesFilter()">
+  <mat-form-field>
+    <input matInput formControlName="count" placeholder="Select Number of Categories">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="offset" placeholder="Select the offset of Categories">
+  </mat-form-field>
+  <button mat-button color="primary" type="submit" [disabled]="categoryListForm.invalid">Get Categories</button>
+</form>
