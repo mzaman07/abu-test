@@ -1,0 +1,26 @@
+<div *ngIf="currentCategories.length > 0">
+  <h1>Search By Category</h1>
+  <form [formGroup]="categorySearchForm" (ngSubmit)="searchClueByCategory()">
+          <mat-form-field>
+              <mat-label>Select Category to find Clues</mat-label>
+              <select matNativeControl formControlName="category">
+                  <option *ngFor="let cat of currentCategories" [value]="cat.id">
+                      {{cat.title}}
+                  </option>
+              </select>
+          </mat-form-field>
+          <button mat-button color="primary" type="submit" [disabled]="categorySearchForm.invalid">Search Clues</button>
+  </form>
+</div>
+<div *ngIf="searchResult != null">
+  <h3>Current Category Searched: {{searchResult.title}}</h3>
+  <p>Total clues available: {{searchResult.clues_count}}</p>
+  <table>
+    <tr>
+      <th>Id</th><th>Question</th><th>Answer</th><th>Value</th><th>Air Date</th>
+    </tr>
+    <tr *ngFor="let clue of searchResult.clues">
+      <td>{{clue.id}}</td><td>{{clue.question}}</td><td>{{clue.answer}}</td><td>{{clue.value}}</td><td>{{clue.airdate}}</td>
+    </tr>
+  </table>
+</div>

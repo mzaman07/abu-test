@@ -1,0 +1,16 @@
+<div>
+  <form [formGroup]="randomCluesForm" (ngSubmit)="getRandomClues()">
+    <mat-form-field>
+      <input matInput formControlName="count" placeholder="Select Number of Clues">
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" [disabled]="randomCluesForm.invalid">Submit</button>
+  </form>
+</div>
+<div *ngIf="randomClues.length > 0">
+  <table>
+    <tr><th>Id</th><th>Question</th><th>Answer</th><th>Value</th><th>Air Date</th><th>Category</th></tr>
+    <tr *ngFor="let clue of randomClues">
+      <td>{{clue.id}}</td><td>{{clue.question}}</td><td>{{clue.answer}}</td><td>{{clue.value}}</td><td>{{clue.airdate}}</td><td>{{clue.category.title}}</td>
+    </tr>
+  </table>
+</div>
